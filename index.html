@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="msg" />
+    <button onclick="sumbitMsg()">Submit</button>
+    <h1 id="array_list"></h1>
+    <script>
+      let msg = "";
+      let msgarray = [];
+      function sumbitMsg() {
+        msg = document.getElementById("msg").value;
+        msgarray.push(msg);
+        console.log(msgarray);
+
+        display();
+        document.getElementById("msg").value = " ";
+      }
+
+      function display() {
+        let arrayLength = msgarray.length;
+        console.log(arrayLength);
+        let val = "";
+        for (let i = 0; i < arrayLength; i++) {
+          val = val + " " + msgarray[i];
+          console.log(val);
+          let display_array = document.getElementById("array_list");
+          display_array.innerHTML = val;
+        }
+      }
+
+      document.addEventListener("keypress", function onEvent(event) {
+        if (event.key === "Enter") {
+          sumbitMsg();
+        }
+      });
+    </script>
+  </body>
+</html>
